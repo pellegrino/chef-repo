@@ -1,0 +1,47 @@
+{
+    "name": "gitorious",
+    "description": "Installs/Configures gitorious",
+    "long_description": "= DESCRIPTION:\n\n= REQUIREMENTS:\n\n= ATTRIBUTES:\n\n= USAGE:\n\n",
+    "maintainer": "quartieri.com.br",
+    "maintainer_email": "vitor@quartieri.com.br",
+    "license": "Apache 2.0",
+    "platforms": {
+      "ubuntu": [
+
+      ]
+    },
+    "dependencies": {
+      "build-essential": [
+
+      ],
+      "git": [
+
+      ],
+      "imagemagick": [
+
+      ],
+      "imagemagick::rmagick": [
+
+      ],
+      "mysql": [
+
+      ]
+    },
+    "recommendations": {
+    },
+    "suggestions": {
+    },
+    "conflicting": {
+    },
+    "providing": {
+    },
+    "replacing": {
+    },
+    "attributes": {
+    },
+    "groupings": {
+    },
+    "recipes": {
+    },
+    "version": "0.0.1"
+  }

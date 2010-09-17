@@ -4,7 +4,7 @@ default[:sphinx][:url]          = "http://www.sphinxsearch.com/downloads/sphinx-
 default[:sphinx][:stemmer_url]  = "http://snowball.tartarus.org/dist/libstemmer_c.tgz"
 
 # tunable options
-default[:sphinx][:use_stemmer]  = false
+default[:sphinx][:use_stemmer]  =  false
 default[:sphinx][:use_mysql]    = true
 default[:sphinx][:use_postgres] = false
 
