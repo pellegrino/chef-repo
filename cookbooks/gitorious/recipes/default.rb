@@ -21,7 +21,9 @@ include_recipe "build-essential"
 include_recipe "git"
 include_recipe "imagemagick"
 include_recipe "imagemagick::rmagick"
-include_recipe "mysql::server" 
+include_recipe "mysql::server"
+include_recipe "sphinx"
+
 gitorious_packages = %w{
   libonig-dev
   libyaml-dev
