@@ -1,38 +1,38 @@
 {
-    "version": "0.3.0",
-    "providing": {
-    },
-    "attributes": {
-    },
+    "name": "sphinx",
+    "description": "Installs/Configures sphinx",
+    "long_description": "= DESCRIPTION:\nInstall Sphinx\n\n= REQUIREMENTS:\n\n= ATTRIBUTES: \n\n= USAGE:\n\n= POSTGRESQL\nTo setup with postgresql support override the sphinx/configure_flags attribute.\n\nHere is an example of how I do it in one of my cookbook attributes file:\n\n\ninclude_attribute \"sphinx::default\"\n\nset[:sphinx][:configure_flags] = [\n  \"--with-pgsql\",\n  \"--without-mysql\",\n  \"#{sphinx[:use_stemmer] ? '--with-stemmer' : '--without-stemmer'}\"\n]\n\n",
     "maintainer": "Alex Soto",
-    "replacing": {
+    "maintainer_email": "apsoto@gmail.com",
+    "license": "Apache 2.0",
+    "platforms": {
     },
     "dependencies": {
-      "mysql": [
+      "build-essential": [
 
       ],
-      "build-essential": [
+      "mysql": [
 
       ],
       "postgresql": [
 
       ]
     },
-    "maintainer_email": "apsoto@gmail.com",
-    "groupings": {
-    },
     "recommendations": {
     },
-    "license": "Apache 2.0",
-    "long_description": "= DESCRIPTION:\nInstall Sphinx\n\n= REQUIREMENTS:\n\n= ATTRIBUTES: \n\n= USAGE:\n\n= POSTGRESQL\nTo setup with postgresql support override the sphinx/configure_flags attribute.\n\nHere is an example of how I do it in one of my cookbook attributes file:\n\n\ninclude_attribute \"sphinx::default\"\n\nset[:sphinx][:configure_flags] = [\n  \"--with-pgsql\",\n  \"--without-mysql\",\n  \"#{sphinx[:use_stemmer] ? '--with-stemmer' : '--without-stemmer'}\"\n]\n\n",
     "suggestions": {
-    },
-    "name": "sphinx",
-    "recipes": {
     },
     "conflicting": {
     },
-    "platforms": {
+    "providing": {
     },
-    "description": "Installs/Configures sphinx"
+    "replacing": {
+    },
+    "attributes": {
+    },
+    "groupings": {
+    },
+    "recipes": {
+    },
+    "version": "0.3.0"
   }

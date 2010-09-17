@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: gitorious
-# Recipe:: default
+# Cookbook Name:: activemq
+# Attributes:: activemq
 #
-# Copyright 2010, quartieri.com.br
+# Copyright 2009, Opscode, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,25 +17,5 @@
 # limitations under the License.
 #
 
-include_recipe "build-essential"
-include_recipe "git"
-include_recipe "imagemagick"
-include_recipe "imagemagick::rmagick"
-include_recipe "mysql::server"
-include_recipe "sphinx"
-
-gitorious_packages = %w{
-  libonig-dev
-  libyaml-dev
-  geoip-bin
-  libgeoip-dev
-  libgeoip1
-}
-
-gitorious_packages.each do |p|
-  package p do
-    action :install 
-  end 
-end 
-
-
+default[:activemq][:mirror]  = "http://mirrors.ibiblio.org/pub/mirrors"
+default[:activemq][:version] = "5.3.2"
