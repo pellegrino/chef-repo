@@ -1,48 +1,48 @@
 {
-  "name": "ruby",
-  "description": "Installs ruby packages",
-  "long_description": "",
-  "maintainer": "Opscode, Inc.",
-  "maintainer_email": "cookbooks@opscode.com",
-  "license": "Apache 2.0",
-  "platforms": {
-    "centos": [
+    "name": "ruby",
+    "description": "Installs ruby packages",
+    "long_description": "",
+    "maintainer": "Opscode, Inc.",
+    "maintainer_email": "cookbooks@opscode.com",
+    "license": "Apache 2.0",
+    "platforms": {
+      "centos": [
 
-    ],
-    "redhat": [
+      ],
+      "redhat": [
 
-    ],
-    "fedora": [
+      ],
+      "fedora": [
 
-    ],
-    "ubuntu": [
+      ],
+      "ubuntu": [
 
-    ],
-    "debian": [
+      ],
+      "debian": [
 
-    ],
-    "arch": [
+      ],
+      "arch": [
 
-    ]
-  },
-  "dependencies": {
-  },
-  "recommendations": {
-  },
-  "suggestions": {
-  },
-  "conflicting": {
-  },
-  "providing": {
-  },
-  "replacing": {
-  },
-  "attributes": {
-  },
-  "groupings": {
-  },
-  "recipes": {
-    "ruby": "Installs ruby packages"
-  },
-  "version": "0.8.0"
-}
+      ]
+    },
+    "dependencies": {
+    },
+    "recommendations": {
+    },
+    "suggestions": {
+    },
+    "conflicting": {
+    },
+    "providing": {
+    },
+    "replacing": {
+    },
+    "attributes": {
+    },
+    "groupings": {
+    },
+    "recipes": {
+      "ruby": "Installs ruby packages"
+    },
+    "version": "0.8.0"
+  }
