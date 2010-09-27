@@ -26,6 +26,7 @@ include_recipe "mysql::server"
 include_recipe "sphinx"
 include_recipe "sphinx::ultrasphinx"
 include_recipe "activemq"
+include_recipe "activemq::server"
 
 gitorious_packages = %w{
   libonig-dev
