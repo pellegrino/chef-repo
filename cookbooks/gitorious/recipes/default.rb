@@ -19,10 +19,13 @@
 
 include_recipe "build-essential"
 include_recipe "git"
+include_recipe "git::server" 
 include_recipe "imagemagick"
 include_recipe "imagemagick::rmagick"
 include_recipe "mysql::server"
 include_recipe "sphinx"
+include_recipe "sphinx::ultrasphinx"
+include_recipe "activemq"
 
 gitorious_packages = %w{
   libonig-dev
@@ -36,6 +39,18 @@ gitorious_packages.each do |p|
   package p do
     action :install 
   end 
+end
+
+
+# fetching gitorious source code
+execute "Getting gitorious source code" do
+  cwd "/var/www"
+  command  "git clone http://git.gitorious.org/gitorious/mainline.git gitorious"
+  not_if { ::File.exists?("/var/www/gitorious") } 
 end 
+# execute "mkdir -p /var/www/gitorious.quartieri.com.br"
+# execute "git clone http://git.gitorious.org/gitorious/mainline.git gitorious" do
+#   cwd "/var/www/gitorious.quartieri.com.br" 
+# end
 
 

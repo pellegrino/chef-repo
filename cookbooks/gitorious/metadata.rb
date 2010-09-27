@@ -10,5 +10,7 @@ depends "git"
 depends "imagemagick"
 depends "imagemagick::rmagick"
 depends "mysql"
-depends "sphinx" 
+depends "sphinx"
+depends "activemq" 
+
 supports "ubuntu" 
