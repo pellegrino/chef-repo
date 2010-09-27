@@ -72,13 +72,18 @@ execute "Creating a symlink to gitorious" do
   not_if { ::File.exists?("/var/www/gitorious") } 
 end 
 
-execute "Copying scripts to the right place" do
-  cwd "/var/www/git.quartieri.com.br/gitorious" 
-  command "ln -s doc/templates/ubuntu/git-ultrasphix /etc/init.d/git-ultrasphinx; ln -s doc/templates/ubuntu/git-daemon /etc/init.d/git-daemon ; chmod +x /etc/init.d/git-ultrasphinx ; chmod +x /etc/init.d/git-daemon ;update-rc.d -f git-daemon start 99 2 3 4 5 . ;  update-rc.d -f git-ultrasphinx start 99 2 3 4 5 ."
 
-  not_if {::File.exists?("/etc/init.d/git-ultrasphinx") or File.exists?("/etc/init.d/git-daemon") }
+link "/var/www/git.quartieri.com.br/gitorious/doc/templates/ubuntu/git-ultrasphinx" do
+  to "/etc/init.d/git-ultrasphinx" 
 end
 
+link "/var/www/git.quartieri.com.br/gitorious/doc/templates/ubuntu/git-daemon" do
+  to "/etc/init.d/git-daemon" 
+end
+
+execute "run git-daemon and git-ultrasphinx services" do
+  command "update-rc.d -f git-daemon start 99 2 3 4 5 . ; update-rc.d -f git-ultrasphinx start 99 2 3 4 5 ."
+end 
 
 execute "Creating home for git repositories" do
   command "usermod -a -G gitorious git ; mkdir -p /var/git/repositories ; mkdir -p /var/git/tarballs ; mkdir -p /var/git/tarball-work ; chown -R git:git /var/git"
