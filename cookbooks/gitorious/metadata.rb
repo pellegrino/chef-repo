@@ -6,11 +6,13 @@ long_description IO.read(File.join(File.dirname(__FILE__), 'README.rdoc'))
 version          "0.0.1"
 
 depends "build-essential"
+depends "ruby_enterprise" 
 depends "git"
 depends "imagemagick"
 depends "imagemagick::rmagick"
 depends "mysql"
 depends "sphinx"
-depends "activemq" 
+depends "activemq"
+depends "memcached"  
 
 supports "ubuntu" 
