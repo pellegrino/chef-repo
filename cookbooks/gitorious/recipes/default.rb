@@ -27,6 +27,7 @@ include_recipe "sphinx"
 include_recipe "sphinx::ultrasphinx"
 include_recipe "activemq"
 include_recipe "activemq::server"
+include_recipe "memcached" 
 
 gitorious_packages = %w{
   libonig-dev
@@ -42,16 +43,32 @@ gitorious_packages.each do |p|
   end 
 end
 
+execute "Creating gitorious group" do
+  command "groupadd gitorious"
+  command "usermod -a -G gitorious vitor" 
+end
+
+execute "Creating gitorious directory" do
+  command "mkdir -p /var/www/git.quartieri.com.br"
+  command "chown christian:gitorious /var/www/git.quartieri.com.br"
+  command "chmod -R g+sw /var/www/git.quartieri.com.br" 
+  not_if { ::File.exists?("/var/www/git.quartieri.com.br") } 
+end
 
 # fetching gitorious source code
 execute "Getting gitorious source code" do
-  cwd "/var/www"
+  cwd "/var/www/git.quartieri.com.br"
+  command "mkdir log ; mkdir conf" 
   command  "git clone http://git.gitorious.org/gitorious/mainline.git gitorious"
-  not_if { ::File.exists?("/var/www/gitorious") } 
-end 
-# execute "mkdir -p /var/www/gitorious.quartieri.com.br"
-# execute "git clone http://git.gitorious.org/gitorious/mainline.git gitorious" do
-#   cwd "/var/www/gitorious.quartieri.com.br" 
-# end
+  not_if { ::File.exists?("/var/www/git.quartieri.com.br/gitorious") } 
+end
 
-
+execute "Preparing gitorious directory" do
+  cwd "/var/www/git.quartieri.com.br/gitorious"
+  command "ln -s script/gitorious /usr/local/bin/gitorious"
+  command "rm public/.htaccess"
+  command "mkdir -p tmp/pids"
+  command "ug+x script/*"
+  command "chmod -R g+w config/ log/ public/ tmp/" 
+  not_if { ::File.exists?("/usr/local/bin/gitorious") } 
+end
