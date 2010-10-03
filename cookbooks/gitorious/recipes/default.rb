@@ -28,7 +28,8 @@ include_recipe "sphinx::ultrasphinx"
 include_recipe "activemq"
 include_recipe "activemq::server"
 include_recipe "memcached" 
-include_recipe "passenger_enterprise::apache2" 
+include_recipe "passenger_enterprise::apache2"
+
 gitorious_packages = %w{
   libonig-dev
   libyaml-dev

@@ -14,5 +14,6 @@ depends "mysql"
 depends "sphinx"
 depends "activemq"
 depends "memcached"  
-depends "passenger_enterprise" 
+depends "passenger_enterprise"
+
 supports "ubuntu" 

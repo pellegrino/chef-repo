@@ -37,6 +37,9 @@
       ],
       "memcached": [
 
+      ],
+      "passenger_enterprise": [
+
       ]
     },
     "recommendations": {
