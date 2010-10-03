@@ -18,7 +18,6 @@
 #
 
 include_recipe "build-essential"
-include_recipe "ruby_enterprise" 
 include_recipe "git"
 include_recipe "git::server" 
 include_recipe "imagemagick"
@@ -29,7 +28,7 @@ include_recipe "sphinx::ultrasphinx"
 include_recipe "activemq"
 include_recipe "activemq::server"
 include_recipe "memcached" 
-
+include_recipe "passenger_enterprise::apache2" 
 gitorious_packages = %w{
   libonig-dev
   libyaml-dev
@@ -74,11 +73,13 @@ end
 
 
 link "/var/www/git.quartieri.com.br/gitorious/doc/templates/ubuntu/git-ultrasphinx" do
-  to "/etc/init.d/git-ultrasphinx" 
+  to "/etc/init.d/git-ultrasphinx"
+  not_if "test -f /etc/init.d/git-ultrasphinx"
 end
 
 link "/var/www/git.quartieri.com.br/gitorious/doc/templates/ubuntu/git-daemon" do
-  to "/etc/init.d/git-daemon" 
+  to "/etc/init.d/git-daemon"
+  not_if "test -f /etc/init.d/git-daemon" 
 end
 
 execute "run git-daemon and git-ultrasphinx services" do
@@ -95,11 +96,26 @@ execute "Create .ssh/authorized_keys directory" do
   not_if { ::File.exists?("/home/git/.ssh/authorized_keys") } 
 end
 
+
+### Config files for gitorious
+
 template "gitorious.yml" do
   path "/var/www/git.quartieri.com.br/gitorious/config/gitorious.yml"
   mode 0700
   source "gitorious.yml.erb" 
-end 
+end
+
+link "/var/www/git.quartieri.com.br/gitorious/config/broker.yml.example" do
+  to"/var/www/git.quartieri.com.br/gitorious/config/broker.yml"
+end
+
+
+
+
+## TODO: Generate config/database.yml file from template
+
+## TODO: Install gems 
+# TODO: # 
 # Create a template for /home/git/.bashrc
 # execute "" do
 #   command "
