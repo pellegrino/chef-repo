@@ -9,7 +9,3 @@ chef_server_url          "https://api.opscode.com/organizations/quartieri"
 cache_type               'BasicFile'
 cache_options( :path => "#{ENV['HOME']}/.chef/checksums" )
 cookbook_path            ["#{current_dir}/../cookbooks"]
-cookbook_copyright "quartieri.com.br"
-cookbook_email     "vitor@quartieri.com.br"
-cookbook_license   "apachev2"
-

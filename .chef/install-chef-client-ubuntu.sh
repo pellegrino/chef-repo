@@ -9,4 +9,5 @@ ruby setup.rb --no-format-executable
 
 
 
-gem install chef ohai --no-ri --no-rdoc 
+gem install net-ssh-multi chef ohai --no-ri --no-rdoc 
+knife bootstrap quartieri.com.br
