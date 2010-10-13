@@ -31,6 +31,7 @@ search(:apps) do |app|
   (app['database_master_role'] & node.run_list.roles).each do |dbm_role|
     %w{ root repl debian }.each do |user|
       user_pw = app["mysql_#{user}_password"]
+      log "user_pw #{user_pw}" 
       if !user_pw.nil? and user_pw[node.app_environment]
         node.set[:mysql]["server_#{user}_password"] = user_pw[node.app_environment]
         node.save

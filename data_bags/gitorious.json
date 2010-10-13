@@ -1,0 +1,72 @@
+{
+  "id": "gitorious",
+  "server_roles": [
+    "gitorious" 
+  ],
+  "type": {
+    "gitorious": [
+      "rails",
+      "unicorn"
+    ]
+  },
+  "memcached_role": [
+    "gitorious_memcached" 
+  ],
+  "database_slave_role": [
+    "gitorious_database_slave" 
+  ],
+  "database_master_role": [
+    "gitorious_database_master"
+  ],
+  "repository": "git://gitorious.org/gitorious/mainline.git",
+  "revision": {
+    "production": "master"
+  },
+  "force": {
+    "production": "true"
+  },
+  "migrate": {
+    "production": "false"
+  },
+  "databases": {
+    "production": {
+      "reconnect": "true",
+      "encoding": "utf8",
+      "username": "gitorious",
+      "adapter": "mysql",
+      "password": "root", 
+      "database": "gitorious"
+    }
+  },
+  "mysql_root_password": {
+    "password": "root"
+  },
+  "mysql_debian_password": {
+    "production": "root"
+  },
+  "mysql_repl_password": {
+    "production": "root"
+  },
+  "mysql_mysql_password" : {
+    "production" : "root"
+  }, 
+  "snapshots_to_keep": {
+    "production": "3"
+  },
+  "deploy_key": "SSH private key used to deploy from a private git repository",
+  "deploy_to": "/srv/gitorious",
+  "owner": "gitorious",
+  "group": "gitorious",
+  "packages": {
+    "curl": "7.19.5-1ubuntu2"
+  },
+  "gems": {
+    "rails": "2.3.5"
+  },
+  "memcached": {
+    "production": {
+      "namespace": "gitorious"
+    }
+  }, 
+  "app_environment" : "production" 
+}
