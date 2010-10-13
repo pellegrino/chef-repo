@@ -1,6 +1,6 @@
 name "Repository" 
 description "Repository role for a machine that holds organization source code"
-run_list "recipe[application]", "recipe[sphinx]", "recipe[gitorious]"
+run_list "recipe[redmine]"
 override_attributes :apps => {
   :my_app => {
     :production => { 
